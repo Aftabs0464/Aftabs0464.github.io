@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aftab S: Product, design engineering and data</title>
-<meta name="description" content="Portfolio of Aftab S: product, CATIA design engineering, and Python and SQL data work.">
+<title>Aftab S: Product, analytics and engineering</title>
+<meta name="description" content="Portfolio of Aftab S: product management, business analysis, tools built with data and automation, and CATIA design engineering.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap" rel="stylesheet">
@@ -108,21 +108,21 @@
   }
   .lens-label { font-family: var(--display); font-weight: 500; color: var(--muted); font-size: 1rem; margin-bottom: 0.65rem; }
   .lens {
-    position: relative; display: grid; grid-template-columns: repeat(3, 1fr);
-    width: min(640px, 100%);
+    position: relative; display: grid; grid-template-columns: repeat(4, 1fr);
+    width: min(780px, 100%);
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 5px;
   }
   .lens button {
     position: relative; z-index: 1;
-    font-family: var(--display); font-weight: 600; font-size: clamp(0.85rem, 2.4vw, 1.05rem);
+    font-family: var(--display); font-weight: 600; font-size: clamp(0.76rem, 2.3vw, 1rem);
     background: transparent; color: var(--muted); border: 0; cursor: pointer;
-    padding: 0.8rem 0.4rem; border-radius: 10px; line-height: 1.2;
+    padding: 0.8rem 0.3rem; border-radius: 10px; line-height: 1.2;
     transition: color .2s ease;
   }
   .lens button[aria-pressed="true"] { color: var(--accent-ink); }
   .lens .pill {
     position: absolute; z-index: 0; top: 5px; bottom: 5px; left: 5px;
-    width: calc((100% - 10px) / 3);
+    width: calc((100% - 10px) / 4);
     background: var(--accent); border-radius: 10px;
     transition: transform .35s cubic-bezier(.3,.8,.3,1);
   }
@@ -172,7 +172,7 @@
   @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
 
   /* Skills */
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
   .skill-col { border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; background: var(--surface); transition: border-color .25s ease, box-shadow .25s ease; }
   .skill-col h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.9rem; }
   .skill-col.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
@@ -283,8 +283,9 @@
       <div class="lens" role="group" aria-labelledby="lensLabel" id="lens">
         <span class="pill" id="pill" aria-hidden="true"></span>
         <button type="button" data-lens="pm" aria-pressed="true">Product</button>
+        <button type="button" data-lens="ba" aria-pressed="false">Business analyst</button>
+        <button type="button" data-lens="dev" aria-pressed="false">Developer</button>
         <button type="button" data-lens="de" aria-pressed="false">Design engineer</button>
-        <button type="button" data-lens="dev" aria-pressed="false">Data and code</button>
       </div>
 
       <h1 id="headline" class="in"></h1>
@@ -300,7 +301,7 @@
 
   <section class="block" id="about">
     <div class="wrap">
-      <h2 class="title">From designing aircraft to shaping platform products</h2>
+      <h2 class="title">From designing aircraft to shaping platform products and tools</h2>
       <div class="about-grid">
         <div class="about-copy" id="aboutCopy"></div>
         <aside class="bridge" aria-label="Skills that carry over" id="bridge"></aside>
@@ -310,7 +311,7 @@
 
   <section class="block" id="skills">
     <div class="wrap">
-      <h2 class="title">Three toolkits, one way of thinking</h2>
+      <h2 class="title">Four toolkits, one way of thinking</h2>
       <p class="lede">The toolkit that matches the lens you picked above lights up.</p>
       <div class="skills" id="skillGrid"></div>
     </div>
@@ -333,10 +334,10 @@
 
   <section class="block" id="contact">
     <div class="wrap">
-      <h2 class="title">Hiring for product, design or data work? Let’s talk.</h2>
+      <h2 class="title">Hiring for product, analyst, developer or design roles? Let’s talk.</h2>
       <div class="contact-grid">
         <div>
-          <p>I’m open to associate product manager, design engineer and developer or data roles. Send a note and it will land straight in my inbox.</p>
+          <p>I’m open to associate product manager, business analyst, developer and design engineer roles. Send a note and it will land straight in my inbox.</p>
           <ul class="social" id="social"></ul>
         </div>
         <form class="card-form" id="contactForm" novalidate>
@@ -375,47 +376,83 @@ const CONTENT = {
   lenses: {
     pm: {
       headline: "I turn merchant and category problems into product decisions.",
-      sub: "Lead Category at Swiggy. Before that I worked with 200+ enterprise merchants, turning their feedback into specs, A/B tests and roadmap changes."
+      sub: "Lead Category at Swiggy and former Product Lead at Myntra, where I worked on platform strategy and partner integrations for 19,000+ brands. Before that, I worked with 200+ enterprise merchants at Startek."
+    },
+    ba: {
+      headline: "I turn business questions into numbers, and numbers into decisions.",
+      sub: "I use SQL, Python and BI dashboards to analyse catalog, pricing and conversion data, then explain what it means to senior stakeholders in plain language."
+    },
+    dev: {
+      headline: "I build tools that remove manual work for category and product teams.",
+      sub: "My builds include a seller alert emailer and a price tracker that watches five shopping portals. Both started as a team problem that I decided to fix myself."
     },
     de: {
       headline: "I trained as an aeronautical engineer, and I still think in CAD.",
       sub: "B.E. in Aeronautical Engineering (CGPA 8.45/10). I model parts and assemblies in CATIA V5, prepare 2D drawings and have taken a UAV from concept to CAD."
-    },
-    dev: {
-      headline: "I use Python and SQL to turn large data sets into decisions.",
-      sub: "I analyse catalog and listing data, build dashboards and automate repetitive reporting so teams spend time on decisions, not spreadsheets."
     }
   },
 
   about: [
     "I studied aeronautical engineering at Anna University, where I learned aerodynamics, aircraft structures, propulsion and flight mechanics, and designed a UAV in CATIA V5 from concept to CAD.",
-    "I then moved into product work at Startek, on the Flipkart account. I managed technical integrations for 200+ enterprise merchants, worked with engineering, QA and design to fix defects, and used A/B tests to shape the roadmap. Today I’m Lead Category at Swiggy.",
-    "I’m looking for roles where an engineering mindset and commercial experience both count: associate product manager, design engineer, or developer and data roles."
+    "I then moved into product and business work. At Startek, on the Flipkart account, I managed technical integrations for 200+ enterprise merchants and used A/B tests to shape the roadmap. At Myntra I led platform strategy, ad-tech monetisation and dynamic pricing work. Today I’m Lead Category at Swiggy.",
+    "Along the way I became the person who builds the tools the team needs, like a seller alert emailer and a cross-portal price tracker. I’m looking for roles where analysis, product thinking and building all count: associate product manager, business analyst, developer or design engineer."
   ],
 
   bridge: [
     { from: "Design reviews", to: "Product reviews with engineering" },
     { from: "CAD drawings and specs", to: "Clear technical requirements" },
     { from: "Merchant feedback", to: "Roadmap decisions backed by A/B tests" },
-    { from: "Python and SQL analysis", to: "Data-driven category and product choices" }
+    { from: "Python and SQL analysis", to: "Pricing and category decisions" },
+    { from: "Manual spreadsheet chores", to: "Automated alerts and trackers" }
   ],
 
   skills: [
-    { lens: "pm",  title: "Product",         items: ["A/B testing", "User research", "Partner integrations", "Technical specifications", "Backlog prioritisation", "Cross-functional work"] },
-    { lens: "de",  title: "Design engineering", items: ["CATIA V5", "Part and assembly design", "Generative shape design", "2D drafting", "UAV sizing", "Aerodynamics", "Aircraft structures"] },
-    { lens: "dev", title: "Data and code",   items: ["Python", "SQL", "Data analysis", "BI dashboards", "Workflow automation", "Technical documentation"] }
+    { lens: "pm",  title: "Product", items: ["Platform strategy", "Partner integrations", "Product roadmapping", "A/B testing", "User research", "Backlog prioritisation", "Beta testing", "Executive communication", "Ad-tech monetisation", "Programmatic advertising (DSP)", "ROAS"] },
+    { lens: "ba",  title: "Business analysis", items: ["Data analysis", "SQL", "BI dashboards", "Conversion funnel optimisation", "Dynamic pricing strategy", "Yield optimisation", "Key account management", "Requirements gathering"] },
+    { lens: "dev", title: "Build", items: ["Python", "SQL", "Web scraping", "Workflow automation", "Agentic AI initiatives", "Technical documentation"] },
+    { lens: "de",  title: "Design engineering", items: ["CATIA V5", "Part and assembly design", "Generative shape design", "2D drafting", "UAV sizing", "Aerodynamics", "Aircraft structures"] }
   ],
 
   projects: [
     {
-      title: "UAV design, from concept to CAD",
-      summary: "An unmanned aerial vehicle designed and modelled end to end.",
-      metric: "Concept to CAD", metricNote: "modelled in CATIA V5",
-      lenses: ["de"],
-      problem: "Design a UAV from a blank page, with the airframe configuration and sizing to be worked out.",
-      did: "Defined the airframe configuration and sizing, modelled the components and assemblies in CATIA V5 and prepared the 2D drawings.",
-      result: "A complete UAV design backed by CAD models and drawings, with aerodynamics, structures and materials guiding each design decision.",
-      tags: ["CATIA V5", "Assembly design", "2D drafting", "Aerodynamics"]
+      title: "Cross-portal price tracker",
+      summary: "Scrapes five shopping portals and warns when a brand discounts less on one of them.",
+      metric: "5 portals", metricNote: "Flipkart, Amazon, Ajio, Nykaa, Meesho",
+      lenses: ["pm", "ba", "dev"],
+      problem: "Teams had no single view of how a brand was listed and priced across competing portals, so lower discounts on one platform went unnoticed.",
+      did: "Built a tool that automatically scrapes each portal and reports how many products a brand has and what its ratings are. It matches similar SKUs across portals and shows where the brand gives the smallest discount, then raises a warning.",
+      result: "Category teams can see at a glance which platform is getting the weakest deal for a brand, with the evidence ready for the conversation.",
+      tags: ["Web scraping", "Pricing analysis", "Automation", "Competitive intelligence"]
+    },
+    {
+      title: "Seller alert auto-emailer",
+      summary: "Emails sellers when inventory drops or prices change, with their KAM in copy.",
+      metric: "2 triggers", metricNote: "inventory drop and price change since yesterday",
+      lenses: ["pm", "ba", "dev"],
+      problem: "Inventory drops and price changes were found late and chased by hand, so sellers responded slowly.",
+      did: "Built an emailer that compares each SKU with the previous day and writes to the seller when stock falls or the price changes. Every email includes the seller’s Key Account Manager, so someone owns the reply.",
+      result: "Issues reach sellers the same day and the right person is already in the thread, which removes the manual chasing.",
+      tags: ["Workflow automation", "Seller operations", "Key account management"]
+    },
+    {
+      title: "Agentic AI for dynamic pricing and ad yield",
+      summary: "Automated pricing and advertising yield optimisation for Myntra’s brands.",
+      metric: "$120M+", metricNote: "incremental revenue, 400,000+ SKUs unlocked",
+      lenses: ["pm", "ba"],
+      problem: "Pricing and advertising yield were tuned by hand across a very large catalog, which limited how many SKUs could be optimised.",
+      did: "Led agentic AI initiatives to automate dynamic pricing and ad yield optimisation, and rolled out self-serve monetisation and seller-sponsored visibility tools for brand partners.",
+      result: "Unlocked 400,000+ SKUs and drove $120M+ in incremental revenue, with beta testing across 30,000+ active accounts.",
+      tags: ["Dynamic pricing", "Ad-tech", "Agentic AI", "Product roadmap"]
+    },
+    {
+      title: "Seller visibility: research and A/B tests",
+      summary: "Found usability friction in visibility features and tested fixes.",
+      metric: "A/B tests", metricNote: "that shaped the roadmap",
+      lenses: ["pm", "ba"],
+      problem: "Sellers hit usability friction in the visibility features behind sponsored and promoted listings.",
+      did: "Ran user research and A/B tests, and turned merchant feedback into clear technical specifications.",
+      result: "The findings influenced the product roadmap for sponsored and promoted listings.",
+      tags: ["A/B testing", "User research", "Specifications"]
     },
     {
       title: "Technical integrations for enterprise merchants",
@@ -428,24 +465,24 @@ const CONTENT = {
       tags: ["Integrations", "Defect triage", "Cross-functional work"]
     },
     {
-      title: "Seller visibility: research and A/B tests",
-      summary: "Found usability friction in visibility features and tested fixes.",
-      metric: "A/B tests", metricNote: "that shaped the roadmap",
-      lenses: ["pm", "dev"],
-      problem: "Sellers hit usability friction in the visibility features behind sponsored and promoted listings.",
-      did: "Ran user research and A/B tests, and turned merchant feedback into clear technical specifications.",
-      result: "The findings influenced the product roadmap for sponsored and promoted listings.",
-      tags: ["A/B testing", "User research", "Specifications"]
-    },
-    {
       title: "Catalog and listing data analysis",
       summary: "Data insights that helped central teams improve discoverability.",
       metric: "SQL and Python", metricNote: "on catalog and listing data",
-      lenses: ["dev", "pm"],
+      lenses: ["ba", "dev"],
       problem: "Central product teams needed evidence on how catalog metadata and listing workflows affected discoverability.",
       did: "Analysed catalog and listing data and improved the metadata and workflows behind it, then reported the findings.",
       result: "Teams got data-driven insight that improved how products were found.",
       tags: ["SQL", "Python", "Data analysis"]
+    },
+    {
+      title: "UAV design, from concept to CAD",
+      summary: "An unmanned aerial vehicle designed and modelled end to end.",
+      metric: "Concept to CAD", metricNote: "modelled in CATIA V5",
+      lenses: ["de"],
+      problem: "Design a UAV from a blank page, with the airframe configuration and sizing to be worked out.",
+      did: "Defined the airframe configuration and sizing, modelled the components and assemblies in CATIA V5 and prepared the 2D drawings.",
+      result: "A complete UAV design backed by CAD models and drawings, with aerodynamics, structures and materials guiding each design decision.",
+      tags: ["CATIA V5", "Assembly design", "2D drafting", "Aerodynamics"]
     }
   ],
 
@@ -455,11 +492,22 @@ const CONTENT = {
       points: []
     },
     {
+      when: "Add dates", role: "Product Lead, Platform Strategy and Partner Integrations", org: "Myntra, Bengaluru",
+      points: [
+        "Led platform strategy and partner integrations for 19,000+ brands, as the main link between executives, partners and engineering and design teams.",
+        "Led agentic AI initiatives to automate dynamic pricing and ad yield optimisation, unlocking 400,000+ SKUs and driving $120M+ in incremental revenue.",
+        "Rolled out self-serve monetisation and seller-sponsored visibility tools so brands could improve conversion and return on ad spend.",
+        "Defined roadmaps and ran beta testing for dynamic pricing and ad-tech features across 30,000+ active accounts.",
+        "Used SQL, Python and BI dashboards to turn user behaviour and conversion data into product requirements."
+      ]
+    },
+    {
       when: "June 2023 to January 2025", role: "Product Experience Specialist", org: "Startek India (Flipkart account), Bengaluru",
       points: [
         "Managed technical integrations and platform usability improvements for 200+ high-volume enterprise merchants.",
         "Worked with engineering, QA and design to find and fix defects, keeping a 95%+ operational quality score.",
         "Turned user and merchant feedback into technical specifications and ran A/B tests that shaped the product roadmap.",
+        "Analysed catalog and listing data to give central teams insights that improved discoverability.",
         "Standardised issue escalation and resolution so critical problems were handled quickly."
       ]
     },
@@ -481,12 +529,12 @@ const CONTENT = {
    ===================================================== */
 (function () {
   const C = CONTENT;
-  const LENS_ORDER = ["pm", "de", "dev"];
+  const LENS_ORDER = ["pm", "ba", "dev", "de"];
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   // Names, year
-  document.title = C.name + ": Product, design engineering and data";
+  document.title = C.name + ": Product, analytics and engineering";
   $("brandName").textContent = C.name;
   $("footName").textContent = C.name;
   $("year").textContent = "© " + new Date().getFullYear();
